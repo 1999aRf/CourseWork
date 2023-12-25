@@ -65,7 +65,7 @@ public class Main {
         return count > 0 ? total / count : 0;
     }
 
-    public static void listFullNames() {
+    public static void listFullNames( ) {
         for (Employee employee : employees) {
             if (employee != null) {
                 System.out.println(employee.getFullName());
