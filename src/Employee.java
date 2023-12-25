@@ -1,6 +1,5 @@
 public class Employee {
     private static int idCounter = 1;
-    private static Employee[] employees = new Employee[10]; // Хранилище записей о сотрудниках
 
     private final int id;
     private String fullName;
@@ -40,69 +39,6 @@ public class Employee {
         this.salary = salary;
     }
 
-    // Статические методы для работы с массивом employees
-    public static void addEmployee(Employee employee, int index) {
-        if (index >= 0 && index < employees.length) {
-            employees[index] = employee;
-        }
-    }
-
-    public static void listEmployees() {
-        for (Employee employee : employees) {
-            if (employee != null) {
-                System.out.println(employee);
-            }
-        }
-    }
-
-    public static double totalSalaries() {
-        double total = 0;
-        for (Employee employee : employees) {
-            if (employee != null) {
-                total += employee.getSalary();
-            }
-        }
-        return total;
-    }
-
-    public static Employee minSalaryEmployee() {
-        Employee minSalaryEmployee = null;
-        for (Employee employee : employees) {
-            if (employee != null && (minSalaryEmployee == null || employee.getSalary() < minSalaryEmployee.getSalary())) {
-                minSalaryEmployee = employee;
-            }
-        }
-        return minSalaryEmployee;
-    }
-
-    public static Employee maxSalaryEmployee() {
-        Employee maxSalaryEmployee = null;
-        for (Employee employee : employees) {
-            if (employee != null && (maxSalaryEmployee == null || employee.getSalary() > maxSalaryEmployee.getSalary())) {
-                maxSalaryEmployee = employee;
-            }
-        }
-        return maxSalaryEmployee;
-    }
-
-    public static double averageSalary() {
-        double total = totalSalaries();
-        int count = 0;
-        for (Employee employee : employees) {
-            if (employee != null) {
-                count++;
-            }
-        }
-        return count > 0 ? total / count : 0;
-    }
-
-    public static void listFullNames() {
-        for (Employee employee : employees) {
-            if (employee != null) {
-                System.out.println(employee.getFullName());
-            }
-        }
-    }
 
     @Override
     public String toString() {
